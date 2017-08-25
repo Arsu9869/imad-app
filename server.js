@@ -16,7 +16,7 @@ var articlOne = {
             this is the content for my first article 
             this is the content for my first article 
             this is the content for my first article 
-        </p>'
+        </p> 
         };
 function createTemplate(data)
 {
@@ -24,36 +24,37 @@ function createTemplate(data)
     var date =data.date;
     var heading = data.heading;
     var content = data.content;
-    var htmlTemplate = <html>
+    var htmlTemplate = 
+    <html>
         <head>
-        <title>
-        $(title)
-        </title>
-        <meta name="viewport" content="width = device-width, initial-scale=1">
+          <title>
+             ${title}
+          </title>
+          <meta name="viewport" content="width = device-width, initial-scale=1">
         
-        <link href="/ui/style.css" rel="stylesheet" />
-       
+          <link href="/ui/style.css" rel="stylesheet" />
+        
         </head>
         <body>
-        <div class="container">
+          <div class="container">
             <div>
             <a href="/">Home</a>
             </div>
             <hr>
             <h3>
-            $(heading)
+            ${heading}
             </h3>
             <div>
-            $(date)
+            ${date}
             </div>
             <div>
             <p>
-            $(content)
+            ${content}
             </p>
              </div>
         </div>
     </body>
-</html>
+</html> ;
 return htmlTemplate;
 
 
