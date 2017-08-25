@@ -6,18 +6,56 @@ var app = express();
 app.use(morgan('combined'));
 
 
-var content = {
+var articlOne = {
   title: 'article one ramesh',
   heading: 'article-one',
   date: 'aug 24,2017',
-  content: '
+  content: `
         <p>
             this is the content for my first article 
             this is the content for my first article 
             this is the content for my first article 
             this is the content for my first article 
         </p>'
-        } ;
+        };
+function createTemplate(data)
+{
+    var title = data.title;
+    var date =data.date;
+    var heading = data.heading;
+    var content = data.content;
+    var htmlTemplate = <html>
+        <head>
+        <title>
+        $(title)
+        </title>
+        <meta name="viewport" content="width = device-width, initial-scale=1">
+        
+        <link href="/ui/style.css" rel="stylesheet" />
+       
+        </head>
+        <body>
+        <div class="container">
+            <div>
+            <a href="/">Home</a>
+            </div>
+            <hr>
+            <h3>
+            $(heading)
+            </h3>
+            <div>
+            $(date)
+            </div>
+            <div>
+            <p>
+            $(content)
+            </p>
+             </div>
+        </div>
+    </body>
+</html>
+return htmlTemplate;
+
 
 
 
@@ -33,7 +71,7 @@ app.get('/', function (req, res) {
 
 app.get('/article-one', function(req,res)
 {
-  res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
+  res.send(createTemplte(articleOne);
 });
 app.get('/article-two', function(req,res)
 {res.send('article-two is requested and will be served here');
